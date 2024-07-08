@@ -2,8 +2,8 @@
 import pandas as pd
 import numpy as np
 
-defaultTest = pd.read_csv("test.csv", sep=',')                # Importing the dataframe 'test.csv' from the appropriate folder
-defaultTrain = pd.read_csv("train.csv", sep=',')              # Importing the dataframe 'train.csv' from the appropriate folder
+defaultTest = pd.read_csv("data/test.csv", sep=',')                # Importing the dataframe 'test.csv' from the appropriate folder
+defaultTrain = pd.read_csv("data/train.csv", sep=',')              # Importing the dataframe 'train.csv' from the appropriate folder
 fulldf = pd.concat([defaultTest, defaultTrain])      # Merging  the 2 datasets, so that we can work as if we were given the undivided
 
 #dataset in the first place.
@@ -68,5 +68,5 @@ fulldf['Class'] = fulldf['Class'].replace({"Eco": 0, "Eco Plus": 1, "Business": 
 fulldf = fulldf.drop(['Departure Delay in Minutes', 'Arrival Delay in Minutes'], axis = 1)
 
 # Saving data
-fulldf.to_csv('data_processed.csv', encoding='utf-8')
+fulldf.to_csv('data/data_processed.csv', encoding='utf-8')
 #

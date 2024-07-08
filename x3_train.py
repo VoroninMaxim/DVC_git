@@ -18,7 +18,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
 # Load data
-fulldf = pd.read_csv('data_processed.csv')
+fulldf = pd.read_csv('data/data_processed.csv')
 
 # Extract X and y variables and values
 x = fulldf.drop(['satisfaction'], axis = 1)
@@ -87,7 +87,7 @@ axes.set_ylabel("True positive rate")
 axes.set_title("ROC Curve for KNN, Logistic regression, Dummy")
 axes.grid(which = 'major', c='#cccccc', linestyle='--', alpha=0.5)
 axes.legend(shadow=True)
-plt.savefig('ROC.png', dpi=120)
+plt.savefig('data/ROC.png', dpi=120)
 
 
 # Calculate AUC values for the classifiers
@@ -97,7 +97,7 @@ auc_knn                 = metrics.auc(fprKNN, tprKNN)
 
 
 # - - - - - - - GENERATE METRICS FILE
-with open("metrics.json", 'w') as outfile:
+with open("data/metrics.json", 'w') as outfile:
         json.dump(
         	{ "accuracy_dummy"                 : accuracyDummy,
         	  "accuracy_KNN"                   : accuracyKNN,
